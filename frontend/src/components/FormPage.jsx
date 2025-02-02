@@ -17,19 +17,12 @@ const FormPage = () => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const response = await fetch("http://localhost:8000/tasks", {
-      method: POST,
+      method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title,
-        description,
-        dueDate,
-        completed,
-        priority,
-      }),
-      const tasks = await response.json()
-      
+      body: JSON.stringify(formData),
     });
-    
+    const task = await response.json();
+    console.log(task);
   };
   return (
     <form onSubmit={handleSubmit}>
