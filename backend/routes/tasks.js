@@ -5,9 +5,9 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   const { title, description, dueDate, priority } = req.body;
   const newTask = new Task({
-    title: title,
-    description: description,
-    dueDate: dueDate,
+    title,
+    description,
+    dueDate,
     priority: priority,
   });
   try {
