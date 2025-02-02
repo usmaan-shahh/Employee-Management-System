@@ -16,11 +16,12 @@ const FormPage = ({ fetchAllTasks }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch("http://localhost:8000/tasks", {
+    const res = await fetch("http://localhost:8000/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
+
     fetchAllTasks();
   };
   return (

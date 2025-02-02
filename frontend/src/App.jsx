@@ -16,11 +16,9 @@ const App = () => {
       console.error(error);
     }
   };
-
   useEffect(() => {
     fetchAllTasks();
   }, []);
-
   return (
     <div>
       <h1>Todo App</h1>
