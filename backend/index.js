@@ -5,6 +5,7 @@ dotenv.config();
 import router from "./routes/tasks.js";
 connectDB();
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/tasks", router);
 
