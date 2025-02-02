@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-const FormPage = () => {
+const FormPage = ({ fetchAllTasks }) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -23,6 +23,7 @@ const FormPage = () => {
     });
     const task = await response.json();
     console.log(task);
+    fetchAllTasks();
   };
   return (
     <form onSubmit={handleSubmit}>
