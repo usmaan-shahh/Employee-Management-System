@@ -1,17 +1,13 @@
 import express from "express";
-import mongoose from "mongoose";
+import connectDB from "./configuration/mongoDb.js";
 import dotenv from "dotenv";
+import router from "./routes/tasks.js";
 dotenv.config();
+connectDB();
 const app = express();
+app.use("/tasks", router);
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then((mongooseInstance) => {
-    console.log("Connected to the database");
-
-    const connection = mongooseInstance.connection;
-    console.log("Database name:", connection.name);
-  })
-  .catch((err) => {
-    console.error("Error connecting to the database:", err);
-  });
+const port = process.env.PORT;
+app.listen(port, () => {
+  console.log(`Backend running on ${port} `);
+});

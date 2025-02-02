@@ -7,3 +7,4 @@ const taskSchema = new mongoose.Schema({
   priority: { type: String, enum: ["low", "medium", "high"], default: "low" },
 });
 const Task = mongoose.model("Task", taskSchema);
+export default Task;
