@@ -9,20 +9,18 @@ const FormPage = ({ fetchAllTasks }) => {
     priority: "low",
   });
 
-  const handleChange = (ev) => {
-    const { name, value } = ev.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (ev) => {
-    ev.preventDefault();
-    const response = await fetch("http://localhost:8000/tasks", {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    fetch("http://localhost:8000/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    const task = await response.json();
-    console.log(task);
     fetchAllTasks();
   };
   return (
