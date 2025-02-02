@@ -27,11 +27,21 @@ const App = () => {
       <FormPage fetchAllTasks={fetchAllTasks} />
       {tasks.map((task, index) => (
         <div key={index}>
-          <h2>Title: {task.title}</h2>
-          <p>Description: {task.description}</p>
-          <p>Due Date: {task.dueDate}</p>
-          <p>Completed: {task.completed ? "Yes" : "No"}</p>
-          <p>Priority: {task.priority}</p>
+          <h4>
+            Title: <u>{task.title}</u>
+          </h4>
+          <h4>
+            Description: <u>{task.description}</u>
+          </h4>
+          <h4>
+            Due Date: <u>{task.dueDate}</u>
+          </h4>
+          <h4>
+            Completed: <u>{task.completed ? "Yes" : "No"}</u>
+          </h4>
+          <h4>
+            Priority:<u>{task.priority}</u>
+          </h4>
         </div>
       ))}
     </div>
