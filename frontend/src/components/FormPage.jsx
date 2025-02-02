@@ -26,7 +26,10 @@ const FormPage = () => {
         completed,
         priority,
       }),
+      const tasks = await response.json()
+      
     });
+    
   };
   return (
     <form onSubmit={handleSubmit}>

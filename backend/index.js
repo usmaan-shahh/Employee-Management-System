@@ -1,6 +1,7 @@
 import express from "express";
 import connectDB from "./configuration/mongoDb.js";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 import router from "./routes/tasks.js";
 connectDB();
