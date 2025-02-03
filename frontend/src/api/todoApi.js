@@ -6,11 +6,11 @@ export const todoApi = createApi({
   endpoints: (builder) => ({
     getTodos: builder.query({
       query: () => "/tasks",
-      //   providesTags: ["Todos"],
+      providesTags: ["Todos"],
     }),
     addTodo: builder.mutation({
       query: (formData) => ({
-        url: "/todos",
+        url: "/tasks",
         method: "POST",
         body: formData,
       }),
