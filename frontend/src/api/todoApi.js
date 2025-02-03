@@ -12,7 +12,7 @@ export const todoApi = createApi({
         url: "/tasks",
         method: "POST",
         body: formData,
-        headers: { "Content-Type": "application/json" },
+        // headers: { "Content-Type": "application/json" },
       }),
       invalidatesTags: ["Todos"],
     }),
