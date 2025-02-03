@@ -7,7 +7,15 @@ export const todoApi = createApi({
     getTodos: builder.query({
       query: () => "/tasks",
     }),
+    addTodos: builder.mutation({
+      query: (formData) => ({
+        url: "/tasks",
+        method: "POST",
+        body: formData,
+      }),
+      invalidatesTags: ["Todos"],
+    }),
   }),
 });
 
-export const { useGetTodosQuery } = todoApi;
+export const { useGetTodosQuery, useAddTodosMutation } = todoApi;

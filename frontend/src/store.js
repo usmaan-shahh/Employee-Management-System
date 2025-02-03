@@ -4,7 +4,7 @@ import todoReducer from "./slice/todoSlice";
 
 export const store = configureStore({
   reducer: {
-    todos: todoReducer,
+    todo: todoReducer,
     [todoApi.reducerPath]: todoApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
