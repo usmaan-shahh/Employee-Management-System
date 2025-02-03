@@ -2,16 +2,15 @@ import React from "react";
 import { useGetTodosQuery } from "../api/todoApi";
 
 const TodoList = () => {
-  const { data, isLoading, error } = useGetTodosQuery();
+  const { data: todos, isLoading, error } = useGetTodosQuery();
 
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
 
   return (
     <div>
-      {data.map((todo) => {
-        <ul>
-          {console.log(todo)}
+      {todos.map((todo) => (
+        <ul key={todo.id}>
           <hr />
           <li>
             <b>Name: </b>
@@ -30,8 +29,8 @@ const TodoList = () => {
             {todo.describeYourself}
           </li>
           <hr />
-        </ul>;
-      })}
+        </ul>
+      ))}
     </div>
   );
 };
