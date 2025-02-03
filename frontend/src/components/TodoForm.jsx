@@ -21,9 +21,13 @@ const TodoForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await addTodos(formData);
-    addTodos("");
-    fetchData();
+    try {
+      const response = await addTodos(formData);
+      console.log("Success:", response);
+      setFormData({ name: "", email: "", age: "", describeYourself: "" }); // Reset form
+    } catch (err) {
+      console.error("Failed to submit:", err);
+    }
   };
 
   return (
@@ -32,22 +36,42 @@ const TodoForm = () => {
 
       <form onSubmit={handleSubmit}>
         <label>Enter Name:</label>
-        <input type="text" name="name" onChange={handleChange} />
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
         <br />
         <br />
 
         <label>Enter E-mail:</label>
-        <input type="text" name="email" onChange={handleChange} />
+
+        <input
+          type="text"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
         <br />
         <br />
 
         <label>Age:</label>
-        <input type="text" name="age" onChange={handleChange} />
+        <input
+          type="text"
+          name="age"
+          onChange={handleChange}
+          value={formData.age}
+        />
         <br />
         <br />
 
         <label>Describe Yourself</label>
-        <textarea name="describeYourself" onChange={handleChange} />
+        <textarea
+          name="describeYourself"
+          onChange={handleChange}
+          value={formData.describeYourself}
+        />
         <br />
         <br />
 

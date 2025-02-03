@@ -11,7 +11,7 @@ export const todoApi = createApi({
       query: (formData) => ({
         url: "/tasks",
         method: "POST",
-        body: formData,
+        body: JSON.stringify(formData),
       }),
       invalidatesTags: ["Todos"],
     }),
