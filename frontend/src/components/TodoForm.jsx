@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { addTodo } from "../slice/todoSlice";
-import { useDispatch } from "react-redux";
+import { useAddTodosMutation } from "../api/todoApi";
+
 const TodoForm = () => {
+  const [addTodos] = useAddTodosMutation();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     age: "",
     describeYourself: "",
   });
-  const dispatch = useDispatch();
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -16,16 +18,13 @@ const TodoForm = () => {
       [name]: value,
     }));
   };
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(addTodo(formData));
-    setFormData({
-      name: "",
-      email: "",
-      age: "",
-      describeYourself: "",
-    });
+    await addTodos(formData);
+    addTodos("");
   };
+
   return (
     <div>
       <h1>Todo App</h1>
@@ -43,7 +42,7 @@ const TodoForm = () => {
         <label>Describe Yourself</label>
         <textarea name="describeYourself" onChange={handleChange} />
 
-        <button type="submit">Add Data</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
