@@ -7,21 +7,6 @@ export const todoApi = createApi({
     getTodos: builder.query({
       query: () => "/tasks",
     }),
-    // addTodo: builder.mutation({
-    //   query: (formData) => ({
-    //     url: "/tasks",
-    //     method: "POST",
-    //     body: formData,
-    //   }),
-    //   invalidatesTags: ["Todos"],
-    // }),
-    // deleteTodo: builder.mutation({
-    //   query: (id) => ({
-    //     url: `/todos/${id}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: ["Todos"],
-    // }),
   }),
 });
 

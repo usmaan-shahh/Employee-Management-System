@@ -7,7 +7,6 @@ const App = () => {
   return (
     <div>
       <TodoForm />
-      {todos.map((todo) => todo.name)}
     </div>
   );
 };
