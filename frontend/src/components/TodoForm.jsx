@@ -23,6 +23,7 @@ const TodoForm = () => {
     event.preventDefault();
     await addTodos(formData);
     addTodos("");
+    fetchData();
   };
 
   return (
@@ -30,17 +31,25 @@ const TodoForm = () => {
       <h1>Todo App</h1>
 
       <form onSubmit={handleSubmit}>
-        <label>Enter Name</label>
+        <label>Enter Name:</label>
         <input type="text" name="name" onChange={handleChange} />
+        <br />
+        <br />
 
-        <label>Enter E-mail</label>
+        <label>Enter E-mail:</label>
         <input type="text" name="email" onChange={handleChange} />
+        <br />
+        <br />
 
-        <label>Age</label>
+        <label>Age:</label>
         <input type="text" name="age" onChange={handleChange} />
+        <br />
+        <br />
 
         <label>Describe Yourself</label>
         <textarea name="describeYourself" onChange={handleChange} />
+        <br />
+        <br />
 
         <button type="submit">Submit</button>
       </form>
