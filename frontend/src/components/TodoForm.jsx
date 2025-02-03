@@ -1,5 +1,5 @@
 import React from "react";
-import { useAddTodosMutation } from "../api/todoApi";
+import { addTodo } from "../slice/todoSlice";
 const TodoForm = () => {
   return (
     <div>
