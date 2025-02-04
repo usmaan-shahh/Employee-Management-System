@@ -10,15 +10,19 @@ const TodoList = () => {
   return (
     <>
       <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">
-        Todos
+        Todos List
       </h1>
       <table className="w-full border-collapse border border-gray-300 shadow-lg rounded-lg overflow-hidden">
         <thead className="bg-blue-500 text-white">
           <tr>
-            <th className="p-3 border border-gray-300 text-left">Name</th>
-            <th className="p-3 border border-gray-300 text-left">Email</th>
-            <th className="p-3 border border-gray-300 text-left">Age</th>
-            <th className="p-3 border border-gray-300 text-left">
+            <th className="p-3 border border-gray-300 text-left-center">
+              Name
+            </th>
+            <th className="p-3 border border-gray-300 text-left-center">
+              Email
+            </th>
+            <th className="p-3 border border-gray-300 text-left-center">Age</th>
+            <th className="p-3 border border-gray-300 text-left-center">
               Describe Yourself In One Word
             </th>
           </tr>
@@ -26,10 +30,16 @@ const TodoList = () => {
         <tbody className="bg-white divide-y divide-gray-200">
           {todos.map((todo) => (
             <tr key={todo._id} className="hover:bg-gray-100 transition">
-              <td className="p-3 border border-gray-300">{todo.name}</td>
-              <td className="p-3 border border-gray-300">{todo.email}</td>
-              <td className="p-3 border border-gray-300">{todo.age}</td>
-              <td className="p-3 border border-gray-300">
+              <td className="p-3 border border-gray-300 text-center">
+                {todo.name}
+              </td>
+              <td className="p-3 border border-gray-300  text-center">
+                {todo.email}
+              </td>
+              <td className="p-3 border border-gray-300  text-center">
+                {todo.age}
+              </td>
+              <td className="p-3 border border-gray-300  text-center">
                 {todo.describeYourself}
               </td>
             </tr>
