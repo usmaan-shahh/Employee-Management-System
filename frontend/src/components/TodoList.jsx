@@ -2,11 +2,13 @@ import React from "react";
 import { useGetTodosQuery } from "../api/todoApi";
 import { useRemoveTodosMutation } from "../api/todoApi";
 import EditTodoForm from "./EditTodoForm";
-
+import { useEditTodosMutation } from "../api/todoApi";
 const TodoList = () => {
   const { data: todos, isLoading, error } = useGetTodosQuery();
   const [removeTodos] = useRemoveTodosMutation();
+  const [editTodos] = useEditTodosMutation();
 
+  const toggleIsEditing = () => {};
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
 
@@ -51,7 +53,10 @@ const TodoList = () => {
                       >
                         Delete
                       </button>
-                      <button className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600 transition">
+                      <button
+                        className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600 transition"
+                        onClick={toggleIsEditing(todo._id)}
+                      >
                         Update
                       </button>
                     </div>
