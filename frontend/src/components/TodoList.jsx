@@ -2,7 +2,7 @@ import React from "react";
 import { useGetTodosQuery } from "../api/todoApi";
 
 const TodoList = () => {
-  const { data: todos, isLoading, error, refetch } = useGetTodosQuery();
+  const { data: todos, isLoading, error } = useGetTodosQuery();
 
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
