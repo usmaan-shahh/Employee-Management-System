@@ -55,7 +55,7 @@ const TodoForm = () => {
         <div className="flex flex-col">
           <label className="text-gray-700 font-medium">E-mail:</label>
           <input
-            type="text"
+            type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -66,7 +66,7 @@ const TodoForm = () => {
         <div className="flex flex-col">
           <label className="text-gray-700 font-medium">Age:</label>
           <input
-            type="text"
+            type="number"
             name="age"
             value={formData.age}
             onChange={handleChange}
@@ -79,6 +79,7 @@ const TodoForm = () => {
             Describe Yourself:
           </label>
           <input
+            type="text"
             name="describeYourself"
             value={formData.describeYourself}
             onChange={handleChange}
