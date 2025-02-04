@@ -30,6 +30,7 @@ const UpdateTask = ({ todo, closeForm }) => {
     <div className="p-4 border-t border-gray-300 bg-gray-100">
       <h3 className="text-lg font-semibold mb-2">Update Task</h3>
       <form onSubmit={handleSubmit} className="grid gap-2">
+        <label>Name:</label>
         <input
           type="text"
           name="name"
@@ -38,6 +39,7 @@ const UpdateTask = ({ todo, closeForm }) => {
           required
           className="border p-2 rounded"
         />
+        <label>Email:</label>
         <input
           type="email"
           name="email"
@@ -46,6 +48,7 @@ const UpdateTask = ({ todo, closeForm }) => {
           required
           className="border p-2 rounded"
         />
+        <label>Age:</label>
         <input
           type="number"
           name="age"
@@ -54,7 +57,8 @@ const UpdateTask = ({ todo, closeForm }) => {
           required
           className="border p-2 rounded"
         />
-        <textarea
+        <label>Describe Yourself:</label>
+        <input
           name="describeYourself"
           value={formData.describeYourself}
           onChange={handleChange}
