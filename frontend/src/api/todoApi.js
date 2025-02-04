@@ -22,7 +22,7 @@ export const todoApi = createApi({
       invalidatesTags: ["Todos"],
     }),
     editTodos: builder.mutation({
-      query: ({ id, UpdatedFormData }) => ({
+      query: (UpdatedFormData) => ({
         url: `/tasks/${id}`,
         method: "PUT",
         body: UpdatedFormData,
