@@ -67,7 +67,7 @@ const TodoForm = () => {
         <br />
         <br />
 
-        <label>Describe Yourself</label>
+        <label>Describe Yourself In One Word</label>
         <textarea
           name="describeYourself"
           onChange={handleChange}
