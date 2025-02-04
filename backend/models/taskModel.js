@@ -5,6 +5,7 @@ const taskSchema = new mongoose.Schema({
   email: { type: String, required: true },
   age: { type: Number, required: true },
   describeYourself: { type: String, required: true },
+  isEditing: { type: Boolean, default: false },
 });
 const Task = mongoose.model("Task", taskSchema);
 export default Task;
