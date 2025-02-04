@@ -21,14 +21,9 @@ const TodoForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    try {
-      const response = await addTodos(formData);
-      console.log("Success:", response);
-      setFormData({ name: "", email: "", age: "", describeYourself: "" });
-    } catch (err) {
-      console.error("Failed to submit:", err);
-    }
+    const response = await addTodos(formData);
+    console.log(response);
+    setFormData({ name: "", email: "", age: "", describeYourself: "" });
   };
 
   return (
