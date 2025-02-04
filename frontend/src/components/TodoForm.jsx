@@ -19,12 +19,9 @@ const TodoForm = () => {
     }));
   };
 
-  <input name="name" value={formData.name} onChange={handleChange} />;
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await addTodos(formData);
-    console.log(response);
+    await addTodos(formData);
     setFormData({ name: "", email: "", age: "", describeYourself: "" });
   };
 

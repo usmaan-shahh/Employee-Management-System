@@ -4,6 +4,7 @@ import UpdateTask from "./UpdateTask";
 
 const TodoList = () => {
   const { data: todos, isLoading, error } = useGetTodosQuery();
+
   const [removeTodos] = useRemoveTodosMutation();
 
   const [editingTask, setEditingTask] = useState(null);
@@ -46,7 +47,7 @@ const TodoList = () => {
                     <div className="flex gap-2 justify-center">
                       <button
                         className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"
-                        onClick={() => removeTodos(todo._id)}
+                        onClick={async () => removeTodos(todo._id)}
                       >
                         Delete
                       </button>
