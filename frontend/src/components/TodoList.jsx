@@ -9,6 +9,8 @@ const TodoList = () => {
 
   const [editingTask, setEditingTask] = useState(null);
 
+  // editingTask holds the id to be Updated
+
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
 
@@ -47,7 +49,7 @@ const TodoList = () => {
                     <div className="flex gap-2 justify-center">
                       <button
                         className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"
-                        onClick={async () => removeTodos(todo._id)}
+                        onClick={() => removeTodos(todo._id)}
                       >
                         Delete
                       </button>

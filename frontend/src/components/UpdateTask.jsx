@@ -12,8 +12,12 @@ const UpdateTask = ({ todo, closeForm }) => {
   const [updateTask, { isLoading, isError, isSuccess }] =
     useUpdateTaskMutation();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
