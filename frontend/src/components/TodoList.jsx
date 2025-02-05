@@ -15,46 +15,38 @@ const TodoList = () => {
   if (error) return <p>Error fetching todos</p>;
 
   return (
-    <div className="max-w-4xl mx-auto border border-gray-300 mt-10">
+    <div className="max-w-4xl mx-auto mt-10 bg-white shadow-xl rounded-lg overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300 shadow-lg rounded-lg overflow-hidden">
-          <thead className="bg-blue-500 text-white">
+        <table className="w-full border-collapse">
+          <thead className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
             <tr>
-              <th className="p-3 border border-gray-300 text-center">Name</th>
-              <th className="p-3 border border-gray-300 text-center">Email</th>
-              <th className="p-3 border border-gray-300 text-center">Age</th>
-              <th className="p-3 border border-gray-300 text-center">
+              <th className="p-4 text-center font-semibold">Name</th>
+              <th className="p-4 text-center font-semibold">Email</th>
+              <th className="p-4 text-center font-semibold">Age</th>
+              <th className="p-4 text-center font-semibold">
                 Describe Yourself
               </th>
-              <th className="p-3 border border-gray-300 text-center">Action</th>
+              <th className="p-4 text-center font-semibold">Action</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-200 bg-gray-50">
             {todos.map((todo) => (
               <React.Fragment key={todo._id}>
                 <tr className="hover:bg-gray-100 transition">
-                  <td className="p-3 border border-gray-300 text-center">
-                    {todo.name}
-                  </td>
-                  <td className="p-3 border border-gray-300 text-center">
-                    {todo.email}
-                  </td>
-                  <td className="p-3 border border-gray-300 text-center">
-                    {todo.age}
-                  </td>
-                  <td className="p-3 border border-gray-300 text-center">
-                    {todo.describeYourself}
-                  </td>
-                  <td className="p-3 border border-gray-300 text-center">
-                    <div className="flex gap-2 justify-center">
+                  <td className="p-4 text-center">{todo.name}</td>
+                  <td className="p-4 text-center">{todo.email}</td>
+                  <td className="p-4 text-center">{todo.age}</td>
+                  <td className="p-4 text-center">{todo.describeYourself}</td>
+                  <td className="p-4 text-center">
+                    <div className="flex gap-3 justify-center">
                       <button
-                        className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition"
+                        className="bg-red-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-red-600 transition-transform transform hover:scale-105"
                         onClick={() => removeTodos(todo._id)}
                       >
                         Delete
                       </button>
                       <button
-                        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
+                        className="bg-blue-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105"
                         onClick={() => setEditingTask(todo._id)}
                       >
                         Update

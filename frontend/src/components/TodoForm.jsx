@@ -26,65 +26,68 @@ const TodoForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">
+    <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl">
+      <h1 className="text-3xl font-extrabold text-center text-blue-600 mb-6">
         Todo App
       </h1>
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-wrap items-center gap-4"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         <div className="flex flex-col">
-          <label className="text-gray-700 font-medium">Name:</label>
+          <label className="text-gray-700 font-semibold">Name:</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your name"
           />
         </div>
 
         <div className="flex flex-col">
-          <label className="text-gray-700 font-medium">E-mail:</label>
+          <label className="text-gray-700 font-semibold">E-mail:</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your email"
           />
         </div>
 
         <div className="flex flex-col">
-          <label className="text-gray-700 font-medium">Age:</label>
+          <label className="text-gray-700 font-semibold">Age:</label>
           <input
             type="number"
             name="age"
             value={formData.age}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter your age"
           />
         </div>
 
         <div className="flex flex-col">
-          <label className="text-gray-700 font-medium">
-            Describe Yourself:
+          <label className="text-gray-700 font-semibold">
+            Describe Yourself in one word:
           </label>
           <input
             type="text"
             name="describeYourself"
             value={formData.describeYourself}
             onChange={handleChange}
-            className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
-        <div className="w-full flex justify-center mt-4">
+        <div className="w-full flex justify-center md:col-span-2">
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition"
+            className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-3 px-8 rounded-lg hover:scale-105 transition-transform duration-300"
           >
             Submit
           </button>

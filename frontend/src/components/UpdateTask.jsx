@@ -23,7 +23,7 @@ const UpdateTask = ({ todo, closeForm }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateTask({ id: todo._id, data: formData }).unwrap();
+      await updateTask({ id: todo._id, data: formData });
       closeForm();
     } catch (error) {
       console.error("Error updating:", error);
@@ -31,64 +31,90 @@ const UpdateTask = ({ todo, closeForm }) => {
   };
 
   return (
-    <div className="p-4 border-t border-gray-300 bg-gray-100">
-      <h3 className="text-lg font-semibold mb-2">Update Task</h3>
-      <form onSubmit={handleSubmit} className="grid gap-2">
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="border p-2 rounded"
-        />
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="border p-2 rounded"
-        />
-        <label>Age:</label>
-        <input
-          type="number"
-          name="age"
-          value={formData.age}
-          onChange={handleChange}
-          required
-          className="border p-2 rounded"
-        />
-        <label>Describe Yourself:</label>
-        <input
-          name="describeYourself"
-          value={formData.describeYourself}
-          onChange={handleChange}
-          required
-          className="border p-2 rounded"
-        />
-        <div className="flex gap-2">
+    <div className="p-6 border-t border-gray-300 bg-white shadow-md rounded-lg">
+      <h3 className="text-xl font-semibold text-gray-800 mb-4">Update Task</h3>
+      <form onSubmit={handleSubmit} className="grid gap-4">
+        <div className="flex flex-col">
+          <label className="text-gray-700 font-medium">Name:</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-gray-700 font-medium">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="Enter your email"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-gray-700 font-medium">Age:</label>
+          <input
+            type="number"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            required
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="Enter your age"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-gray-700 font-medium">
+            Describe Yourself in one word:
+          </label>
+          <input
+            type="text"
+            name="describeYourself"
+            value={formData.describeYourself}
+            onChange={handleChange}
+            required
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            placeholder="Enter your age"
+          />
+        </div>
+
+        <div className="flex gap-3">
           <button
             type="submit"
             disabled={isLoading}
-            className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition"
+            className="bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition-transform transform hover:scale-105 disabled:bg-green-300"
           >
             {isLoading ? "Updating..." : "Save"}
           </button>
           <button
             type="button"
             onClick={closeForm}
-            className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition"
+            className="bg-gray-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-transform transform hover:scale-105"
           >
             Cancel
           </button>
         </div>
+
         {isSuccess && (
-          <p className="text-green-500">Task updated successfully!</p>
+          <p className="text-green-600 font-medium text-center mt-3">
+            Task updated successfully!
+          </p>
         )}
-        {isError && <p className="text-red-500">Error updating task</p>}
+        {isError && (
+          <p className="text-red-500 font-medium text-center mt-3">
+            Error updating task
+          </p>
+        )}
       </form>
     </div>
   );
