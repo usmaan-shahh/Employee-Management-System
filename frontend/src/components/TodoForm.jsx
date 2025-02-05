@@ -73,13 +73,14 @@ const TodoForm = () => {
 
         <div className="flex flex-col">
           <label className="text-gray-700 font-semibold">
-            Describe Yourself in one word:
+            Describe Yourself:
           </label>
           <input
             type="text"
             name="describeYourself"
             value={formData.describeYourself}
             onChange={handleChange}
+            placeholder="Describe Yourself in one word"
             className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
