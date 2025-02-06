@@ -1,28 +1,21 @@
 import React, { useState } from "react";
 import { useAddTodosMutation } from "../api/todoApi";
+import { updateField, resetForm } from "../slices/formSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const TodoForm = () => {
   const [addTodos] = useAddTodosMutation();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    age: "",
-    describeYourself: "",
-  });
-
+  const dispatch = useDispatch();
+  const formData = useSelector((state) => state.form);
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    dispatch(updateField({ name, value }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     await addTodos(formData);
-    setFormData({ name: "", email: "", age: "", describeYourself: "" });
+    dispatch(resetForm());
   };
 
   return (

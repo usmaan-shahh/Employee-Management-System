@@ -1,29 +1,28 @@
 import React, { useState } from "react";
 import { useUpdateTaskMutation } from "../api/todoApi";
-
+import { useDispatch, useSelector } from "react-redux";
+import { updateField, setFormData, resetForm } from "../slices/formSlice";
 const UpdateTask = ({ todo, closeForm }) => {
-  const [formData, setFormData] = useState({
-    name: todo.name,
-    email: todo.email,
-    age: todo.age,
-    describeYourself: todo.describeYourself,
-  });
+  const dispatch = useDispatch();
+  const formData = useSelector((state) => state.form);
 
   const [updateTask, { isLoading, isError, isSuccess }] =
     useUpdateTaskMutation();
 
+  useEffect(() => {
+    dispatch(setFormData(todo));
+  }, [dispatch, todo]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    dispatch(updateField({ name, value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await updateTask({ id: todo._id, data: formData });
+      dispatch(resetForm());
       closeForm();
     } catch (error) {
       console.error("Error updating:", error);
