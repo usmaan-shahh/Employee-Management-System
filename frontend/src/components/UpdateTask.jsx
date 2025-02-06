@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useUpdateTaskMutation } from "../api/todoApi";
 import { useDispatch, useSelector } from "react-redux";
+import Modal from "./Modal";
 import { setFieldValue, editFieldValue, resetForm } from "../slices/formSlice";
 
 const UpdateTask = ({ todo, closeForm }) => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);
-  const [updateTask, { isLoading, isError, isSuccess }] =
-    useUpdateTaskMutation();
+  const [modalMessage, setModalMessage] = useState("");
+  const [isUpdateSuccess, setIsUpdateSuccess] = useState(false);
+  const [updateTask, { isLoading }] = useUpdateTaskMutation();
 
   useEffect(() => {
     dispatch(editFieldValue(todo));
@@ -22,12 +24,21 @@ const UpdateTask = ({ todo, closeForm }) => {
     try {
       await updateTask({ id: todo._id, data: formData });
       dispatch(resetForm());
-      closeForm();
+      setModalMessage("Task updated successfully!");
+      setIsUpdateSuccess(true);
     } catch (error) {
       console.error("Error updating:", error);
+      setModalMessage("Error updating task.");
+      setIsUpdateSuccess(false);
     }
   };
-
+  const closeModal = () => {
+    setModalMessage("");
+    if (isUpdateSuccess) {
+      closeForm();
+    }
+    setIsUpdateSuccess(false);
+  };
   return (
     <div className="p-6 border-t border-gray-300 bg-white shadow-md rounded-lg">
       <h3 className="text-xl font-semibold text-gray-800 mb-4">Update Task</h3>
@@ -44,7 +55,6 @@ const UpdateTask = ({ todo, closeForm }) => {
             placeholder="Enter your name"
           />
         </div>
-
         <div className="flex flex-col">
           <label className="text-gray-700 font-medium">Email:</label>
           <input
@@ -57,7 +67,6 @@ const UpdateTask = ({ todo, closeForm }) => {
             placeholder="Enter your email"
           />
         </div>
-
         <div className="flex flex-col">
           <label className="text-gray-700 font-medium">Age:</label>
           <input
@@ -70,7 +79,6 @@ const UpdateTask = ({ todo, closeForm }) => {
             placeholder="Enter your age"
           />
         </div>
-
         <div className="flex flex-col">
           <label className="text-gray-700 font-medium">
             Describe Yourself in one word:
@@ -85,7 +93,6 @@ const UpdateTask = ({ todo, closeForm }) => {
             placeholder="Enter your age"
           />
         </div>
-
         <div className="flex gap-3">
           <button
             type="submit"
@@ -102,8 +109,7 @@ const UpdateTask = ({ todo, closeForm }) => {
             Cancel
           </button>
         </div>
-        {isSuccess && alert("Task Updated Successfully")}
-        {isError && alert("Error updating task")}
+        {modalMessage && <Modal message={modalMessage} onClose={closeModal} />}
       </form>
     </div>
   );
