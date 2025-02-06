@@ -12,10 +12,10 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { name, email, age, describeYourself } = req.body;
+  const { name, age, describeYourself } = req.body;
   const newTask = new Task({
     name,
-    email,
+
     age,
     describeYourself,
   });
@@ -29,11 +29,11 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, email, age, describeYourself } = req.body;
+  const { name, age, describeYourself } = req.body;
   try {
     const updatedTask = await Task.findByIdAndUpdate(
       id,
-      { name, email, age, describeYourself },
+      { name, age, describeYourself },
       { new: true }
     );
     if (!updatedTask) {
