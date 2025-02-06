@@ -11,7 +11,7 @@ const TodoForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    dispatch(setFieldValue({ name, value })); //dispatch(setFieldValue({ name: "name", value: "John" }));
+    dispatch(setFieldValue({ name, value }));
   };
 
   const handleSubmit = async (event) => {
