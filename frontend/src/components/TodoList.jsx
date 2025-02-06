@@ -7,9 +7,7 @@ const TodoList = () => {
 
   const [removeTodos] = useRemoveTodosMutation();
 
-  const [editingTask, setEditingTask] = useState(null);
-
-  // editingTask holds the id to be Updated
+  const [taskToEdit, setTaskToEdit] = useState(null);
 
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
@@ -60,7 +58,7 @@ const TodoList = () => {
                     <td colSpan="5">
                       <UpdateTask
                         todo={todo}
-                        closeForm={() => setEditingTask(null)}
+                        closeForm={() => setTaskToEdit(null)}
                       />
                     </td>
                   </tr>
