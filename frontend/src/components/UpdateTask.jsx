@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useUpdateTaskMutation } from "../api/todoApi";
 import { useDispatch, useSelector } from "react-redux";
 import { updateField, setFormData, resetForm } from "../slices/formSlice";
+
 const UpdateTask = ({ todo, closeForm }) => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form);
-
   const [updateTask, { isLoading, isError, isSuccess }] =
     useUpdateTaskMutation();
 
