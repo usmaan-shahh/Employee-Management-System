@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useGetTodosQuery, useRemoveTodosMutation } from "../api/todoApi";
+import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 import UpdateTask from "./UpdateTask";
 
 const TodoList = () => {
@@ -13,13 +15,12 @@ const TodoList = () => {
   if (error) return <p>Error fetching todos</p>;
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 bg-white shadow-xl rounded-lg overflow-hidden">
+    <div className="max-w-2xl mx-auto mt-10 bg-white shadow-xl rounded-lg overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
             <tr>
               <th className="p-4 text-center font-semibold">Name</th>
-              <th className="p-4 text-center font-semibold">Email</th>
               <th className="p-4 text-center font-semibold">Age</th>
               <th className="p-4 text-center font-semibold">
                 Describe Yourself
@@ -40,13 +41,13 @@ const TodoList = () => {
                         className="bg-red-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-red-600 transition-transform transform hover:scale-105"
                         onClick={() => removeTodos(todo._id)}
                       >
-                        Delete
+                        <MdDelete />
                       </button>
                       <button
                         className="bg-blue-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105"
                         onClick={() => setTaskToEdit(todo._id)}
                       >
-                        Update
+                        <MdEdit />
                       </button>
                     </div>
                   </td>

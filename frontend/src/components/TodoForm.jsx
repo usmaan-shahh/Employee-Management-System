@@ -21,7 +21,7 @@ const TodoForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl">
+    <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-xl">
       <h1 className="text-3xl font-extrabold text-center text-blue-600 mb-6">
         Todo App
       </h1>
