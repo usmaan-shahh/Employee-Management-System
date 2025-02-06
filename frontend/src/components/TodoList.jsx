@@ -15,7 +15,7 @@ const TodoList = () => {
   if (error) return <p>Error fetching todos</p>;
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white shadow-xl rounded-lg overflow-hidden">
+    <div className="max-w-xl mx-auto mt-10 bg-white shadow-xl rounded-lg overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
