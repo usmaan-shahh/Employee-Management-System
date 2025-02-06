@@ -16,7 +16,10 @@ const formSlice = createSlice({
       state[name] = value;
     },
 
-    editFieldValue: (state, action) => ({ ...action.payload }),
+    editFieldValue: (state, action) => {
+      const { name, value } = action.payload;
+      state[name] = value;
+    },
 
     resetForm: () => initialState,
   },
