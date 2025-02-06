@@ -9,6 +9,8 @@ const TodoList = () => {
 
   const [taskToEdit, setTaskToEdit] = useState(null);
 
+  // editingTask holds the id to be Updated
+
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
 
@@ -45,7 +47,7 @@ const TodoList = () => {
                       </button>
                       <button
                         className="bg-blue-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105"
-                        onClick={() => setEditingTask(todo._id)}
+                        onClick={() => setTaskToEdit(todo._id)}
                       >
                         Update
                       </button>
@@ -53,7 +55,7 @@ const TodoList = () => {
                   </td>
                 </tr>
 
-                {editingTask === todo._id && (
+                {taskToEdit === todo._id && (
                   <tr>
                     <td colSpan="5">
                       <UpdateTask
