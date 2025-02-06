@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useUpdateTaskMutation } from "../api/todoApi";
 import { useDispatch, useSelector } from "react-redux";
-import { updateField, setFormData, resetForm } from "../slices/formSlice";
+import { setFieldValue, editFieldValue, resetForm } from "../slices/formSlice";
 
 const UpdateTask = ({ todo, closeForm }) => {
   const dispatch = useDispatch();
@@ -10,12 +10,12 @@ const UpdateTask = ({ todo, closeForm }) => {
     useUpdateTaskMutation();
 
   useEffect(() => {
-    dispatch(setFormData(todo));
+    dispatch(editFieldValue(todo));
   }, [dispatch, todo]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    dispatch(updateField({ name, value }));
+    dispatch(setFieldValue({ name, value }));
   };
 
   const handleSubmit = async (e) => {

@@ -11,12 +11,12 @@ const formSlice = createSlice({
   name: "form",
   initialState,
   reducers: {
-    updateField: (state, action) => {
+    setFieldValue: (state, action) => {
       const { name, value } = action.payload;
       state[name] = value;
     },
 
-    setFormData: (state, action) => ({ ...action.payload }),
+    editFieldValue: (state, action) => ({ ...action.payload }),
 
     resetForm: () => initialState,
   },
