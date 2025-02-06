@@ -7,9 +7,7 @@ const TodoList = () => {
 
   const [removeTodos] = useRemoveTodosMutation();
 
-  const [taskToEdit, setTaskToEdit] = useState(null);
-
-  // editingTask holds the id to be Updated
+  const [taskToEdit, setTaskToEdit] = useState(null); // editingTask holds the id to be Updated
 
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
