@@ -15,7 +15,9 @@ const formSlice = createSlice({
       const { name, value } = action.payload;
       state[name] = value;
     },
+
     setFormData: (state, action) => ({ ...action.payload }),
+
     resetForm: () => initialState,
   },
 });

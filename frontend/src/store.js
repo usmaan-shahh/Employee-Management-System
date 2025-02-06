@@ -5,6 +5,7 @@ import { todoApi } from "./api/todoApi";
 export const store = configureStore({
   reducer: {
     form: formReducer,
+
     [todoApi.reducerPath]: todoApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

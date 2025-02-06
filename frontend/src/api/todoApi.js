@@ -4,6 +4,7 @@ export const todoApi = createApi({
   reducerPath: "todoApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://todo-1-w7yl.onrender.com" }),
   tagTypes: ["Todos"],
+
   endpoints: (builder) => ({
     getTodos: builder.query({
       query: () => "/tasks",
