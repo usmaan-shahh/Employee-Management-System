@@ -1,7 +1,7 @@
 import React from "react";
 
 const Modal = ({ message, onClose }) => {
-  if (!message) return null; // Don't render if there's no message
+  if (!message) return null;
 
   return (
     <div className="fixed inset-0 flex justify-center items-center z-50">
