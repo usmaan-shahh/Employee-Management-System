@@ -8,8 +8,8 @@ const initialState = {
 };
 
 const formSlice = createSlice({
-  name: "form",
-  initialState,
+  name: "form", //Slice Name
+  initialState, //Initial state of the form
   reducers: {
     setFieldValue: (state, action) => {
       const { name, value } = action.payload;

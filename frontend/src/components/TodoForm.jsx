@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import { useAddTodosMutation } from "../api/todoApi";
-import { updateField, resetForm } from "../slices/formSlice";
+import { setFieldValue, resetForm } from "../slices/formSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const TodoForm = () => {
@@ -12,7 +11,7 @@ const TodoForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    dispatch(updateField({ name, value }));
+    dispatch(setFieldValue({ name, value }));
   };
 
   const handleSubmit = async (event) => {
