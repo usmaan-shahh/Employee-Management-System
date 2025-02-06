@@ -56,7 +56,7 @@ const TodoForm = () => {
 
         <div className="flex flex-col">
           <label className="text-gray-700 font-semibold">
-            Describe Yourself:
+            Describe Yourself on one word:
           </label>
           <input
             type="text"
