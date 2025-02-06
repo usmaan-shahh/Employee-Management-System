@@ -12,7 +12,6 @@ const UpdateTask = ({ todo, closeForm }) => {
   useEffect(() => {
     dispatch(editFieldValue(todo));
   }, [dispatch, todo]);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     dispatch(setFieldValue({ name, value }));
@@ -103,17 +102,8 @@ const UpdateTask = ({ todo, closeForm }) => {
             Cancel
           </button>
         </div>
-
-        {isSuccess && (
-          <p className="text-green-600 font-medium text-center mt-3">
-            Task updated successfully!
-          </p>
-        )}
-        {isError && (
-          <p className="text-red-500 font-medium text-center mt-3">
-            Error updating task
-          </p>
-        )}
+        {isSuccess && alert("Task Updated Successfully")}
+        {isError && alert("Error updating task")}
       </form>
     </div>
   );
