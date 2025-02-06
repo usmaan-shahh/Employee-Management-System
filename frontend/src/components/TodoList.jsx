@@ -32,7 +32,6 @@ const TodoList = () => {
               <React.Fragment key={todo._id}>
                 <tr className="hover:bg-gray-100 transition">
                   <td className="p-4 text-center">{todo.name}</td>
-                  <td className="p-4 text-center">{todo.email}</td>
                   <td className="p-4 text-center">{todo.age}</td>
                   <td className="p-4 text-center">{todo.describeYourself}</td>
                   <td className="p-4 text-center">

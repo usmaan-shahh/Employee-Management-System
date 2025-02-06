@@ -43,18 +43,6 @@ const TodoForm = () => {
         </div>
 
         <div className="flex flex-col">
-          <label className="text-gray-700 font-semibold">E-mail:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter your email"
-          />
-        </div>
-
-        <div className="flex flex-col">
           <label className="text-gray-700 font-semibold">Age:</label>
           <input
             type="number"

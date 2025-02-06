@@ -46,19 +46,6 @@ const UpdateTask = ({ todo, closeForm }) => {
         </div>
 
         <div className="flex flex-col">
-          <label className="text-gray-700 font-medium">Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            placeholder="Enter your email"
-          />
-        </div>
-
-        <div className="flex flex-col">
           <label className="text-gray-700 font-medium">Age:</label>
           <input
             type="number"
