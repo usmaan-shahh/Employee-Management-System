@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import formSlice from "./slices/formSlice";
+import formReducer from "./slices/formSlice";
 import { todoApi } from "./api/todoApi";
 
 export const store = configureStore({
   reducer: {
-    form: formSlice,
+    form: formReducer,
 
     [todoApi.reducerPath]: todoApi.reducer,
   },
