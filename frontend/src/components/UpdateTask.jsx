@@ -9,14 +9,24 @@ import {
 
 const UpdateTask = ({ todo, closeForm }) => {
   const dispatch = useDispatch();
+
   const formData = useSelector((state) => state.form);
-  console.log(formData);
+
   const [updateTask, { isLoading, isError, isSuccess }] =
     useUpdateTaskMutation();
 
   useEffect(() => {
     dispatch(populateFieldValues(todo));
   }, [dispatch, todo]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      alert("Task Updated Successfully");
+    }
+    if (isError) {
+      alert("Error updating task");
+    }
+  }, [isSuccess, isError]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -96,8 +106,6 @@ const UpdateTask = ({ todo, closeForm }) => {
             Cancel
           </button>
         </div>
-        {isSuccess && alert("Task Updated Successfully")}
-        {isError && alert("Error updating task")}
       </form>
     </div>
   );
