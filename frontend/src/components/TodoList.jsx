@@ -9,7 +9,7 @@ const TodoList = () => {
 
   const [removeTodos] = useRemoveTodosMutation();
 
-  const [taskToEdit, setTaskToEdit] = useState(null); // editingTask holds the id to be Updated
+  const [taskToEdit, setTaskToEdit] = useState(null); // taskToEdit holds the id to be Updated
 
   if (isLoading) return <p>Loading todos...</p>;
   if (error) return <p>Error fetching todos</p>;
@@ -37,16 +37,11 @@ const TodoList = () => {
                   <td className="p-4 text-center">{todo.describeYourself}</td>
                   <td className="p-4 text-center">
                     <div className="flex gap-3 justify-center">
-                      <button
-                        className="bg-red-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-red-600 transition-transform transform hover:scale-105"
-                        onClick={() => removeTodos(todo._id)}
-                      >
+                      <button onClick={() => removeTodos(todo._id)}>
                         <MdDelete />
                       </button>
-                      <button
-                        className="bg-blue-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105"
-                        onClick={() => setTaskToEdit(todo._id)}
-                      >
+
+                      <button onClick={() => setTaskToEdit(todo._id)}>
                         <MdEdit />
                       </button>
                     </div>
