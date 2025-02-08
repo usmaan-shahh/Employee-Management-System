@@ -21,7 +21,7 @@ const TodoForm = () => {
   };
 
   return (
-    <div className="max-w-xl w-full mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-2xl hover:shadow-blue-100/40 transition-shadow duration-300 border border-blue-50">
+    <div className="max-w-2xl w-full mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-2xl hover:shadow-blue-100/40 transition-shadow duration-300 border border-blue-50">
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
         Employee Management System
       </h1>
