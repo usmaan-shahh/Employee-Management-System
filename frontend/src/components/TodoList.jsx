@@ -34,7 +34,7 @@ const TodoList = () => {
                   <td className="p-4 text-center">{todo.name}</td>
                   <td className="p-4 text-center">{todo.email}</td>
                   <td className="p-4 text-center">{todo.jobTitle}</td>
-                  <td className="p-4 text-center">{todo.salary}</td>
+                  <td className="p-4 text-center">${todo.salary}</td>
                   <td className="p-4 text-center">
                     <div className="flex gap-3 justify-center">
                       <button onClick={() => removeTodos(todo._id)}>
