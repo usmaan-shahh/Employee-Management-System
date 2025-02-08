@@ -61,7 +61,7 @@ const UpdateTask = ({ todo, closeForm }) => {
             placeholder="Enter your name"
           />
         </div>
-        <div className="flex flex-col md:col-span-2">
+        <div className="flex flex-col ">
           <label className="text-gray-700 font-semibold">Email:</label>
           <input
             type="email"
