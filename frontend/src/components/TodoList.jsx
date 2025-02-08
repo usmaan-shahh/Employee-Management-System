@@ -21,10 +21,9 @@ const TodoList = () => {
           <thead className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
             <tr>
               <th className="p-4 text-center font-semibold">Name</th>
-              <th className="p-4 text-center font-semibold">Age</th>
-              <th className="p-4 text-center font-semibold">
-                Describe Yourself
-              </th>
+              <th className="p-4 text-center font-semibold">Email</th>
+              <th className="p-4 text-center font-semibold">Job Title</th>
+              <th className="p-4 text-center font-semibold">Salary</th>
               <th className="p-4 text-center font-semibold">Action</th>
             </tr>
           </thead>
@@ -34,7 +33,8 @@ const TodoList = () => {
                 <tr className="hover:bg-gray-100 transition">
                   <td className="p-4 text-center">{todo.name}</td>
                   <td className="p-4 text-center">{todo.age}</td>
-                  <td className="p-4 text-center">{todo.describeYourself}</td>
+                  <td className="p-4 text-center">{todo.email}</td>
+                  <td className="p-4 text-center">{todo.salary}</td>
                   <td className="p-4 text-center">
                     <div className="flex gap-3 justify-center">
                       <button onClick={() => removeTodos(todo._id)}>

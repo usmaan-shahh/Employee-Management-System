@@ -61,35 +61,53 @@ const UpdateTask = ({ todo, closeForm }) => {
             placeholder="Enter your name"
           />
         </div>
+        <div className="flex flex-col md:col-span-2">
+          <label className="text-gray-700 font-semibold">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+          />
+        </div>
+
+        {/* Job Title Dropdown */}
+        <div className="flex flex-col space-y-1">
+          <label className="text-gray-700 font-semibold text-sm mb-1">
+            Job Title:
+          </label>
+          <select
+            name="jobTitle"
+            value={formData.jobTitle}
+            onChange={handleChange}
+            className="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all duration-300 bg-white text-gray-700"
+          >
+            <option value="">Select Job Title</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
+            <option value="DevOps Engineer">DevOps Engineer</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="QA Tester">QA Tester</option>
+            <option value="IT Support Specialist">IT Support Specialist</option>
+          </select>
+        </div>
 
         <div className="flex flex-col">
-          <label className="text-gray-700 font-medium">Age:</label>
+          <label className="text-gray-700 font-semibold">Salary:</label>
           <input
             type="number"
-            name="age"
-            value={formData.age}
+            name="salary"
+            value={formData.salary}
             onChange={handleChange}
-            required
-            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            placeholder="Enter your age"
+            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+            placeholder="Enter your salary"
           />
         </div>
-
-        <div className="flex flex-col">
-          <label className="text-gray-700 font-medium">
-            Describe Yourself in one word:
-          </label>
-          <input
-            type="text"
-            name="describeYourself"
-            value={formData.describeYourself}
-            onChange={handleChange}
-            required
-            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            placeholder="Enter your age"
-          />
-        </div>
-
         <div className="flex gap-3">
           <button
             type="submit"
